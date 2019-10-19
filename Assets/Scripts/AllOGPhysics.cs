@@ -7,7 +7,7 @@ public class AllOGPhysics : MonoBehaviour
     PlanetPhysics planet;
     Rigidbody body;
     Vector3 normal;
-    public float accelaration;
+    public float accelaration = 0.05f;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,14 +18,15 @@ public class AllOGPhysics : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        normal = this.transform.position - planet.transform.position;
+        normal = (this.transform.position - planet.transform.position).normalized;
         body.AddForce(-normal, ForceMode.Acceleration);
+        transform.rotation = Quaternion.LookRotation(transform.forward, normal);
     }
 
     private void Update()
     {
         if (Input.GetKey(KeyCode.UpArrow)) {
-            transform.position += -transform.up*accelaration;
+            transform.position += -transform.right*accelaration;
         }
     }
 }
