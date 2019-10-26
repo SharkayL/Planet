@@ -1,8 +1,17 @@
 fileFormatVersion: 2
-guid: 9c1bd84e69a0657479c0976971e23542
+guid: ccaf5eca23c65c640b59cbb1de808157
 ModelImporter:
   serializedVersion: 26
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -6381219164485765015
+    second: TurtleHide.001
+  - first:
+      74: 4781951162920444690
+    second: Armature|ArmatureAction
+  - first:
+      74: -4810346192360965252
+    second: Armature|TurtleHide
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -87,7 +96,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
