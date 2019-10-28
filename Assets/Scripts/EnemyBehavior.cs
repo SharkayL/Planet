@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//updating calculation needed
+
 public enum enemyStates {
     chasing,
     patrolling,
