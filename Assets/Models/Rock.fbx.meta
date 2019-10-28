@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5b5189a4cf06a8c4296d9fca133aaad2
+guid: 46b0a24959810a046b85e3fb32455d5b
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Chameleon
-    second: {fileID: 2100000, guid: c8c73b9185db5f543b1a90332a4b7435, type: 2}
+      name: No Name
+    second: {fileID: 2100000, guid: e76df1536b0a3df4fba4fb2997f058aa, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

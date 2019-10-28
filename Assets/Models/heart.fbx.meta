@@ -1,18 +1,14 @@
 fileFormatVersion: 2
-guid: ccaf5eca23c65c640b59cbb1de808157
+guid: 7e1c6699efee11b41ba62e1a570b8ea7
 ModelImporter:
   serializedVersion: 26
-  internalIDToNameTable:
+  internalIDToNameTable: []
+  externalObjects:
   - first:
-      74: -6381219164485765015
-    second: TurtleHide.001
-  - first:
-      74: 4781951162920444690
-    second: Armature|ArmatureAction
-  - first:
-      74: -4810346192360965252
-    second: Armature|TurtleHide
-  externalObjects: {}
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: d0e87f792e6f09d43a06589bf2a6267c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -50,7 +46,7 @@ ModelImporter:
     sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
-    importCameras: 1
+    importCameras: 0
     importLights: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -96,7 +92,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlanetPhysics : MonoBehaviour
 {
-    float radius;
+    public float radius;
     float x;
     float y;
     float step = 10;
@@ -12,7 +12,7 @@ public class PlanetPhysics : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        radius = this.GetComponent<SphereCollider>().radius;
+        //radius = this.GetComponent<SphereCollider>().radius;
         planet = GetComponent<Rigidbody>();
     }
 

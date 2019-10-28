@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5b5189a4cf06a8c4296d9fca133aaad2
+guid: ab8d31c19c534234c9cc3014fdc70da7
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Chameleon
-    second: {fileID: 2100000, guid: c8c73b9185db5f543b1a90332a4b7435, type: 2}
+      name: Base
+    second: {fileID: 2100000, guid: dd4dff6b94f72fd4e931bdb8a04473c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TurtleArea
+    second: {fileID: 2100000, guid: 755fb43ae3aa495458442070668f6282, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

@@ -1,14 +1,32 @@
 fileFormatVersion: 2
-guid: 5b5189a4cf06a8c4296d9fca133aaad2
+guid: 943d147b98f87cf4889f6be4e3a0b9c1
 ModelImporter:
   serializedVersion: 26
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -6381219164485765015
+    second: TurtleHide.001
+  - first:
+      74: 4781951162920444690
+    second: Armature|ArmatureAction
+  - first:
+      74: -1422011007694221501
+    second: Armature|ArmatureAction.001
+  - first:
+      74: -4810346192360965252
+    second: Armature|TurtleHide
+  - first:
+      74: 8966640438343446148
+    second: Plane|ArmatureAction.001
+  - first:
+      74: -5187248419258813496
+    second: Plane|PlaneAction
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Chameleon
-    second: {fileID: 2100000, guid: c8c73b9185db5f543b1a90332a4b7435, type: 2}
+      name: Material.001
+    second: {fileID: 2100000, guid: 5cf6294c9b4b7794a86aa0cdd5b64e18, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -92,7 +110,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
