@@ -9,8 +9,8 @@ public class PlayerGravityBody : MonoBehaviour {
 
     void Start()
     {
-        GetComponent<Rigidbody>().useGravity = false;
-        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+        //GetComponent<Rigidbody>().useGravity = false;
+        //GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 
         playerTransform = transform;
     }
