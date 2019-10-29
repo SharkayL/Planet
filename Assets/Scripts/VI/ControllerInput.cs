@@ -38,6 +38,10 @@ public static class ControllerInput
         return Input.GetButtonDown("X");
     }
 
+    public static bool GetButtonX_Press() {
+        return Input.GetButton("X");
+    }
+
     public static bool GetButtonY()
     {
         return Input.GetButtonDown("Y");

@@ -5,7 +5,8 @@ using UnityEngine;
 public static class SoundManager
 {
     public enum SoundEffects {
-        Transform
+        Transform,
+        DogBark
     }
 
     public enum UI_SoundEffects {
@@ -17,7 +18,7 @@ public static class SoundManager
     private static GameObject audioObject;
     private static AudioSource audioSource;
 
-    public static void PlaySound(UI_SoundEffects sound)
+    public static void PlaySound(SoundEffects sound)
     {
         if (audioObject == null)
         {
