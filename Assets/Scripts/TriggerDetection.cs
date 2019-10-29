@@ -18,17 +18,15 @@ public class TriggerDetection : MonoBehaviour
     }
     private void Update()
     {
-        anim.SetBool("isHiding", ControllerInput.GetButtonX_Press());
+        anim.SetBool("isHiding", ControllerInput.GetButtonX_Press() || ControllerInput.GetKeySpace_Press());
 
-        if (ControllerInput.GetButtonX_Press())
+        if (ControllerInput.GetButtonX_Press() || ControllerInput.GetKeySpace_Press())
         {
-            pms.currentSpeed = 0;
-            pms.currentRotateSpeed = 0;
+            pms.canMove = false;
             isDefening = true;
         }
         else {
-            pms.currentSpeed = pms.moveSpeed;
-            pms.currentRotateSpeed = pms.rotateSpeed;
+            pms.canMove = true;
             isDefening = false;
         }
     }

@@ -26835,17 +26835,17 @@ PrefabInstance:
     - target: {fileID: 1773743037304807909, guid: 8de5bbea2b04d46ffb330df19b105929,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.01
+      value: -13.29
       objectReference: {fileID: 0}
     - target: {fileID: 1773743037304807909, guid: 8de5bbea2b04d46ffb330df19b105929,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.2
+      value: 10.443
       objectReference: {fileID: 0}
     - target: {fileID: 1773743037304807909, guid: 8de5bbea2b04d46ffb330df19b105929,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 4.97
+      value: 3.17
       objectReference: {fileID: 0}
     - target: {fileID: 1773743037304807909, guid: 8de5bbea2b04d46ffb330df19b105929,
         type: 3}
@@ -27109,6 +27109,16 @@ PrefabInstance:
       propertyPath: attractorPlanet
       value: 
       objectReference: {fileID: 460049402}
+    - target: {fileID: 5267982408402485376, guid: 6e472d287ceeb4a1e97b79783d82e39f,
+        type: 3}
+      propertyPath: isJoystick
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267982408402485376, guid: 6e472d287ceeb4a1e97b79783d82e39f,
+        type: 3}
+      propertyPath: canMove
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7127814035864040278, guid: 6e472d287ceeb4a1e97b79783d82e39f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6e472d287ceeb4a1e97b79783d82e39f, type: 3}
@@ -27241,6 +27251,21 @@ PrefabInstance:
     - target: {fileID: 5554785790704429245, guid: 3c43c9f7f35134762b3c9729cad0d9ef,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5554785790704429245, guid: 3c43c9f7f35134762b3c9729cad0d9ef,
+        type: 3}
+      propertyPath: keyboardRadius
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5554785790704429245, guid: 3c43c9f7f35134762b3c9729cad0d9ef,
+        type: 3}
+      propertyPath: isJoystick
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5554785790704429245, guid: 3c43c9f7f35134762b3c9729cad0d9ef,
+        type: 3}
+      propertyPath: canMove
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5554785791179217136, guid: 3c43c9f7f35134762b3c9729cad0d9ef,

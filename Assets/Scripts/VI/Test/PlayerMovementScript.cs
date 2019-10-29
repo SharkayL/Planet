@@ -10,17 +10,20 @@ public class PlayerMovementScript : MonoBehaviour {
         Kangaroo
     }
 
+    [Header("Type")]
     public animalType type;
 
+    [Header("MoveMent")]
     public float moveSpeed;
-    
-    public float currentSpeed;
     public float rotateSpeed;
-   
-    public float currentRotateSpeed;
+    [Header("DeadZone")]
     public float joystickRadius;
+    public float keyboardRadius;
+    [HideInInspector]
+    public bool canMove;
 
-    private Vector3 moveDirection;
+    private Vector3 moveDirection_Joystick;
+    private Vector3 moveDirection_Keyboard;
     private Rigidbody rb;
     [SerializeField]
     private GameObject detectArea;
@@ -33,6 +36,7 @@ public class PlayerMovementScript : MonoBehaviour {
     private void OnEnable()
     {
         detectArea.SetActive(false);
+        canMove = true;
         ActiveRelateScript(true);
     }
 
@@ -44,33 +48,65 @@ public class PlayerMovementScript : MonoBehaviour {
 
     void Update()
     {
+        JoystickController_Update();
+        KeyboardInput_Update();
+    }
+
+    void JoystickController_Update() {
         float forward = ControllerInput.GetJoystickLeftY();
         if (forward > 0.1f)
         {
             forward = 0;
         }
-        moveDirection = new Vector3(0, 0, -forward).normalized;
+        moveDirection_Joystick = new Vector3(0, 0, -forward).normalized;
         //moveDirection = new Vector3(ControllerInput.GetJoystickLeftX(), 0, -ControllerInput.GetJoystickLeftY()).normalized;
+    }
 
+    void KeyboardInput_Update() {
+        float forward = ControllerInput.GetKeyVertical();
+        if (forward < -0.1f)
+        {
+            forward = 0;
+        }
+        moveDirection_Keyboard = new Vector3(0, 0, forward).normalized;
     }
 
     void FixedUpdate()
     {
+        if (canMove) {
+            JoystickController_FixedUpdate();
+            KeyboardInput_FixedUpdate();
+        }
+    }
+
+    void KeyboardInput_FixedUpdate() {
+        float rotateX = ControllerInput.GetKeyHorizontal();
+        float moveY = ControllerInput.GetKeyVertical();
+        if (Mathf.Abs(moveY) > keyboardRadius)
+        {
+            rb.MovePosition(rb.position + transform.TransformDirection(moveDirection_Keyboard) * moveSpeed * Time.deltaTime);
+        }
+        if (Mathf.Abs(rotateX) > keyboardRadius)
+        {
+            transform.Rotate(0, rotateX * rotateSpeed * Time.deltaTime, 0);
+        }
+    }
+
+
+    void JoystickController_FixedUpdate() {
         float rotateX = ControllerInput.GetJoystickRightX();
         float moveX = ControllerInput.GetJoystickLeftX();
         float moveY = ControllerInput.GetJoystickLeftY();
-       
-   
+
+
         if (Mathf.Abs(moveY) > joystickRadius)
         {
-            rb.MovePosition(rb.position + transform.TransformDirection(moveDirection) * currentSpeed * Time.deltaTime);
+            rb.MovePosition(rb.position + transform.TransformDirection(moveDirection_Joystick) * moveSpeed * Time.deltaTime);
         }
         if (Mathf.Abs(rotateX) > 0.5f)
         {
-            transform.Rotate(0, rotateX * currentRotateSpeed * Time.deltaTime, 0);
+            transform.Rotate(0, rotateX * rotateSpeed * Time.deltaTime, 0);
         }
-        currentSpeed = moveSpeed;
-        currentRotateSpeed = rotateSpeed;
         //if (-moveY > joystickRadius || Mathf.Abs(moveX) > joystickRadius)
         //{
         //    transform.Rotate(0, moveX * rotateSpeed * Time.deltaTime, 0);
@@ -81,10 +117,11 @@ public class PlayerMovementScript : MonoBehaviour {
         //}
     }
 
+
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "AnimalArea") {
-            if (ControllerInput.GetButtonY()) {
+            if (ControllerInput.GetButtonY() || ControllerInput.GetKeyF()) {
                 SwitchPlayer(other.GetComponentInParent<PlayerMovementScript>());
             }
         }
@@ -92,7 +129,9 @@ public class PlayerMovementScript : MonoBehaviour {
 
     void SwitchPlayer(PlayerMovementScript pms) {
         transform.GetChild(1).parent = pms.transform;
-        GetComponent<PlayerMovementScript>().enabled = false;
+        if (transform.childCount <= 1) {
+            GetComponent<PlayerMovementScript>().enabled = false;
+        }
         pms.enabled = true;
     }
 

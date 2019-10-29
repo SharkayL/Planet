@@ -16,14 +16,14 @@ public class SystemController : MonoBehaviour
       
         if (!menu.activeInHierarchy)
         {
-            if (ControllerInput.GetButtonRB())
+            if (ControllerInput.GetButtonRB() || ControllerInput.GetKeyE())
             {
                 Time.timeScale = 0;
                 menu.SetActive(true);
             }
         }
         else {
-            if (ControllerInput.GetButtonRB())
+            if (ControllerInput.GetButtonRB() || ControllerInput.GetKeyE())
             {
                 Time.timeScale = 1;
                 menu.SetActive(false);
