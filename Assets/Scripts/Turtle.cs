@@ -31,6 +31,7 @@ public class Turtle : MonoBehaviour
             if (timer >= 7) {
                 beingReleased = true;
                 timing = false;
+                timer = 0;
             }
         }
         if (beingReleased)
@@ -57,7 +58,6 @@ public class Turtle : MonoBehaviour
                 GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
                 landing = false;
                 beingReleased = false;
-
             }
         }
     }

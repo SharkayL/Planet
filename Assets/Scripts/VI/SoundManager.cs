@@ -6,7 +6,8 @@ public static class SoundManager
 {
     public enum SoundEffects {
         Transform,
-        DogBark
+        DogBark,
+        DogWhining
     }
 
     public enum UI_SoundEffects {

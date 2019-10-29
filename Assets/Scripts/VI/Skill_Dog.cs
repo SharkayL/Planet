@@ -45,6 +45,7 @@ public class Skill_Dog : MonoBehaviour
             dizzyParticles.SetActive(true);
             Vector3 backWardPos = transform.position + transform.TransformDirection(new Vector3(0, 0, -1));
             transform.position = backWardPos;
+            SoundManager.PlaySound(SoundManager.SoundEffects.DogWhining);
         }
     }
 
