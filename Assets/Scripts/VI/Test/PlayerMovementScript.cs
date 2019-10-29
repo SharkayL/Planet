@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class PlayerMovementScript : MonoBehaviour {
 
+    public enum animalType {
+        Dog,
+        Turtle,
+        Kangaroo
+    }
+
+    public animalType type;
+
     public float moveSpeed;
     public float rotateSpeed;
     public float joystickRadius;
@@ -21,11 +29,13 @@ public class PlayerMovementScript : MonoBehaviour {
     private void OnEnable()
     {
         detectArea.SetActive(false);
+        ActiveRelateScript(true);
     }
 
     private void OnDisable()
     {
         detectArea.SetActive(true);
+        ActiveRelateScript(false);
     }
 
     void Update()
@@ -67,7 +77,7 @@ public class PlayerMovementScript : MonoBehaviour {
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "AnimalArea") {
-            if (ControllerInput.GetButtonX()) {
+            if (ControllerInput.GetButtonY()) {
                 SwitchPlayer(other.GetComponentInParent<PlayerMovementScript>());
             }
         }
@@ -77,5 +87,19 @@ public class PlayerMovementScript : MonoBehaviour {
         transform.GetChild(1).parent = pms.transform;
         GetComponent<PlayerMovementScript>().enabled = false;
         pms.enabled = true;
+    }
+
+    void ActiveRelateScript(bool b) {
+        switch (type) {
+            case animalType.Dog:
+
+                break;
+            case animalType.Kangaroo:
+                GetComponent<Skill_Kangaroo>().enabled = b;
+                break;
+            case animalType.Turtle:
+
+                break;
+        }
     }
 }
