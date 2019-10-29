@@ -80,9 +80,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  moveSpeed: 2
+  moveSpeed: 3.5
   currentSpeed: 0
-  rotateSpeed: 150
+  rotateSpeed: 200
   currentRotateSpeed: 0
   joystickRadius: 0.5
   detectArea: {fileID: 1773743038818592669}

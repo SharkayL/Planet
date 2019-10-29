@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DizzyParticles : MonoBehaviour
 {
-    float timer = 2f;
-    [SerializeField]float currentTimer;
+    public float timer = 1f;
+    float currentTimer;
 
     private void OnEnable()
     {

@@ -7,25 +7,27 @@ public class TriggerDetection : MonoBehaviour
     Turtle theTurtle;
     PlayerMovementScript pms;
     bool isDefening;
+    Animator anim;
 
     private void Start()
     {
         pms = GetComponentInParent<PlayerMovementScript>();
         theTurtle = FindObjectOfType<Turtle>();
-    }
+        anim = GetComponentInParent<Animator>();
 
+    }
     private void Update()
     {
-        if (ControllerInput.GetButtonX_Press())
+        anim.SetBool("isHiding", ControllerInput.GetButtonX_Press() || ControllerInput.GetKeySpace_Press());
+
+        if (ControllerInput.GetButtonX_Press() || ControllerInput.GetKeySpace_Press())
         {
-            pms.currentSpeed = 0;
-            pms.currentRotateSpeed = 0;
+            pms.canMove = false;
             isDefening = true;
-            Debug.Log("Def");
         }
         else {
-            pms.currentSpeed = pms.moveSpeed;
-            pms.currentRotateSpeed = pms.rotateSpeed;
+            pms.canMove = true;
+            isDefening = false;
         }
     }
 
@@ -33,10 +35,14 @@ public class TriggerDetection : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            if (!isDefening) {
-                theTurtle.beingGrabed = true;
-                theTurtle.theBird = other.gameObject;
+            if (theTurtle) {
+                if (!isDefening)
+                {
+                    theTurtle.beingGrabed = true;
+                    theTurtle.theBird = other.gameObject;
+                }
             }
+           
         }
     }
 }

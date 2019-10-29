@@ -26,6 +26,7 @@ public class Barrier : MonoBehaviour
             timer += Time.deltaTime;
             if (timer > 3) {
                 forbiddenSign.SetActive(false);
+                timer = 0;
                 timing = false;
             }
         }
@@ -38,7 +39,8 @@ public class Barrier : MonoBehaviour
             forbiddenSign.transform.position = other.gameObject.transform.position + Vector3.Normalize(barrier.worldCenterOfMass - other.gameObject.transform.position);
             Vector3 normal = (forbiddenSign.transform.position - planet.transform.position).normalized;
             forbiddenSign.transform.rotation = Quaternion.LookRotation((other.gameObject.transform.position - forbiddenSign.transform.position), normal);
-            //push collider objects back
+            Vector3 backWardPos = other.transform.position + other.transform.TransformDirection(new Vector3(0, 0, -0.5f));
+            other.transform.position = backWardPos;
         }
     }
 }

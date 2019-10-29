@@ -20,7 +20,7 @@ public class Skill_Kangaroo : MonoBehaviour
  
     void PunchTree() {
         Collider[] treeCollider = Physics.OverlapSphere(transform.position + transform.TransformDirection(new Vector3(0, 0, Z)), radius, treeMask);
-        if (ControllerInput.GetButtonX() && !isReturning)
+        if ((ControllerInput.GetButtonX() || ControllerInput.GetKeySpace()) && !isReturning)
         {
             Vector3 forwardPos = transform.position + transform.TransformDirection(new Vector3(0, 0, Z));
             transform.position = forwardPos;

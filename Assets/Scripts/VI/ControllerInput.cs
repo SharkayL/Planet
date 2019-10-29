@@ -51,4 +51,29 @@ public static class ControllerInput
     {
         return Input.GetButtonDown("RB");
     }
+
+    public static float GetKeyVertical() {
+        return Input.GetAxis("Vertical");
+    }
+
+    public static float GetKeyHorizontal() {
+        return Input.GetAxis("Horizontal");
+    }
+
+    public static bool GetKeyF() {
+        return Input.GetKeyDown(KeyCode.F);
+    }
+
+    public static bool GetKeySpace() {
+        return Input.GetKeyDown(KeyCode.Space);
+    }
+
+    public static bool GetKeySpace_Press()
+    {
+        return Input.GetKey(KeyCode.Space);
+    }
+
+    public static bool GetKeyE() {
+        return Input.GetKeyDown(KeyCode.E);
+    }
 }
