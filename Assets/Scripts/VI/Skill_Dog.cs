@@ -7,6 +7,7 @@ public class Skill_Dog : MonoBehaviour
     public float radius;
     public LayerMask friendMask;
     public float coolDownTimer;
+    public GameObject dizzyParticles;
     bool isFinding;
     float currentTimer;
 
@@ -34,6 +35,16 @@ public class Skill_Dog : MonoBehaviour
         else {
             currentTimer = 0;
             isFinding = false;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "Obstacle")
+        {
+            dizzyParticles.SetActive(true);
+            Vector3 backWardPos = transform.position + transform.TransformDirection(new Vector3(0, 0, -1));
+            transform.position = backWardPos;
         }
     }
 

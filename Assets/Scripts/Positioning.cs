@@ -11,21 +11,21 @@ public class Positioning : MonoBehaviour
     void Start()
     {
         planet = FindObjectOfType<PlanetPhysics>();
-        oriPos = this.transform.position;
-        Vector3 v = this.transform.position - planet.transform.position;
-        transform.up = v.normalized;
-        pos = Vector3.Normalize(v) * (planet.radius);
-        transform.position = this.planet.transform.position  + pos;
+        //oriPos = this.transform.position;
+        //Vector3 v = this.transform.position - planet.transform.position;
+        //transform.up = v.normalized;
+        //pos = Vector3.Normalize(v) * (planet.radius);
+        //transform.position = this.planet.transform.position  + pos;
     }
 
     private void Update()
     {
-        //oriPos = this.transform.position;
-        //Vector3 v = this.transform.position - planet.transform.position;
-        //transform.up = v.normalized;
-        //float dis = Vector3.Distance(this.transform.position, planet.transform.position);
-        //Vector3 position = Vector3.Normalize(v) * (planet.radius);
-        //transform.position = this.planet.transform.position + position;
+        oriPos = this.transform.position;
+        Vector3 v = this.transform.position - planet.transform.position;
+        transform.up = v.normalized;
+        float dis = Vector3.Distance(this.transform.position, planet.transform.position);
+        Vector3 position = Vector3.Normalize(v) * (planet.radius);
+        transform.position = this.planet.transform.position + position;
     }
 
 

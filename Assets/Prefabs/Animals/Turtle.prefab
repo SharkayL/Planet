@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 5267982408402485376}
   - component: {fileID: 5267982408402485377}
   - component: {fileID: 5267982407312727140}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Turtle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   moveSpeed: 2
+  currentSpeed: 0
   rotateSpeed: 150
+  currentRotateSpeed: 0
   joystickRadius: 0.5
   detectArea: {fileID: 5267982406709381313}
 --- !u!65 &5267982408402485377
@@ -185,7 +187,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5267982408402485439}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 95259ebef7a16cb439a647fe06b1315a, type: 3}
   m_Name: 

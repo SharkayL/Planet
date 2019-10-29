@@ -99,7 +99,7 @@ public class PlayerMovementScript : MonoBehaviour {
     void ActiveRelateScript(bool b) {
         switch (type) {
             case animalType.Dog:
-
+                GetComponent<Skill_Dog>().enabled = b;
                 break;
             case animalType.Kangaroo:
                 GetComponent<Skill_Kangaroo>().enabled = b;

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1773743037304807907}
   - component: {fileID: 1773743037304807908}
   - component: {fileID: 1739861429}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Kangaroo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   moveSpeed: 2
+  currentSpeed: 0
   rotateSpeed: 150
+  currentRotateSpeed: 0
   joystickRadius: 0.5
   detectArea: {fileID: 1773743038818592669}
 --- !u!65 &1773743037304807908
@@ -102,7 +104,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773743037304807910}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aabec3792510844b49ec68781078b484, type: 3}
   m_Name: 
