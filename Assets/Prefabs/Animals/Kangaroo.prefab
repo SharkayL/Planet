@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1773743037304807907}
   - component: {fileID: 1773743037304807908}
   - component: {fileID: 1739861429}
+  - component: {fileID: 1025600833}
+  - component: {fileID: 930388733126447892}
   m_Layer: 9
   m_Name: Kangaroo
   m_TagString: Untagged
@@ -59,7 +61,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773743037304807910}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7709c2db290ba46deacf188c0c2692c9, type: 3}
   m_Name: 
@@ -115,6 +117,39 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   returnTimer: 0.3
+--- !u!114 &1025600833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773743037304807910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbafdf585ff64014ba0b99b1c7537e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoppingForce: 0.5
+  groundCheckDis: 0.8
+  onGround: 0
+  radius: 0
+  kangarooMask:
+    serializedVersion: 2
+    m_Bits: 0
+--- !u!114 &930388733126447892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773743037304807910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45103ad0ca3fd4503b9dfee766a999fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  detectArea: {fileID: 1773743038818592669}
 --- !u!1 &1773743038818592669
 GameObject:
   m_ObjectHideFlags: 0

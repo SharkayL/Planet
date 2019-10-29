@@ -25,4 +25,10 @@ public class Launch : MonoBehaviour
             rocketBody.AddForce(dir*force, ForceMode.Acceleration);
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "Collectable") {
+            launch = true;
+        }
+    }
 }
