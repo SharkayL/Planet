@@ -83,15 +83,19 @@ public class PlayerMovementScript : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.tag == "AnimalArea") {
-            if (ControllerInput.GetButtonY()) {
+        if (other.tag == "AnimalArea")
+        {
+            if (ControllerInput.GetButtonY())
+            {
                 SwitchPlayer(other.GetComponentInParent<PlayerMovementScript>());
             }
         }
     }
 
     void SwitchPlayer(PlayerMovementScript pms) {
-        transform.GetChild(1).parent = pms.transform;
+        if (transform.childCount > 1) {
+            transform.GetChild(1).parent = pms.transform;
+        }
         GetComponent<PlayerMovementScript>().enabled = false;
         pms.enabled = true;
     }
