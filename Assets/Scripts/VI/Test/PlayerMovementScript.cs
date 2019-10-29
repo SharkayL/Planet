@@ -13,7 +13,11 @@ public class PlayerMovementScript : MonoBehaviour {
     public animalType type;
 
     public float moveSpeed;
+    
+    public float currentSpeed;
     public float rotateSpeed;
+   
+    public float currentRotateSpeed;
     public float joystickRadius;
 
     private Vector3 moveDirection;
@@ -55,23 +59,26 @@ public class PlayerMovementScript : MonoBehaviour {
         float rotateX = ControllerInput.GetJoystickRightX();
         float moveX = ControllerInput.GetJoystickLeftX();
         float moveY = ControllerInput.GetJoystickLeftY();
-
+       
+   
+        if (Mathf.Abs(moveY) > joystickRadius)
+        {
+            rb.MovePosition(rb.position + transform.TransformDirection(moveDirection) * currentSpeed * Time.deltaTime);
+        }
+        if (Mathf.Abs(rotateX) > 0.5f)
+        {
+            transform.Rotate(0, rotateX * currentRotateSpeed * Time.deltaTime, 0);
+        }
+        currentSpeed = moveSpeed;
+        currentRotateSpeed = rotateSpeed;
         //if (-moveY > joystickRadius || Mathf.Abs(moveX) > joystickRadius)
         //{
         //    transform.Rotate(0, moveX * rotateSpeed * Time.deltaTime, 0);
         //    rb.MovePosition(rb.position + transform.TransformDirection(moveDirection) * moveSpeed * Time.deltaTime);
         //}
-        if (Mathf.Abs(moveY) > joystickRadius)
-        {
-            rb.MovePosition(rb.position + transform.TransformDirection(moveDirection) * moveSpeed * Time.deltaTime);
-        }
         //if (Mathf.Abs(moveX) > joystickRadius) {
         //    transform.Rotate(0, moveX * rotateSpeed * Time.deltaTime, 0);
         //}
-        if (Mathf.Abs(rotateX) > 0.5f)
-        {
-            transform.Rotate(0, rotateX * rotateSpeed * Time.deltaTime, 0);
-        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -98,7 +105,8 @@ public class PlayerMovementScript : MonoBehaviour {
                 GetComponent<Skill_Kangaroo>().enabled = b;
                 break;
             case animalType.Turtle:
-
+                GetComponent<Turtle>().enabled = b;
+                GetComponentInChildren<TriggerDetection>().enabled = b;
                 break;
         }
     }

@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!64 &5267982407312727141
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2785473701587293306}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -462981019419857548, guid: 943d147b98f87cf4889f6be4e3a0b9c1, type: 3}
+--- !u!114 &5267982407312727142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2785473701587293306}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fca96ae00c4761c44a19d33456b173dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5267982406709381313
 GameObject:
   m_ObjectHideFlags: 0
@@ -70,6 +96,7 @@ GameObject:
   - component: {fileID: 5267982408402485379}
   - component: {fileID: 5267982408402485376}
   - component: {fileID: 5267982408402485377}
+  - component: {fileID: 5267982407312727140}
   m_Layer: 0
   m_Name: Turtle
   m_TagString: Untagged
@@ -151,6 +178,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.62, y: 0.41, z: 0.65}
   m_Center: {x: 0.05, y: -0.13, z: -0.11}
+--- !u!114 &5267982407312727140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5267982408402485439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95259ebef7a16cb439a647fe06b1315a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beingGrabed: 0
+  theBird: {fileID: 0}
 --- !u!1001 &5267982408794584374
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,6 +199,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5267982408402485438}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 943d147b98f87cf4889f6be4e3a0b9c1,
+        type: 3}
+      propertyPath: m_Name
+      value: TurtleAni (2)
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 943d147b98f87cf4889f6be4e3a0b9c1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -213,16 +259,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 943d147b98f87cf4889f6be4e3a0b9c1,
-        type: 3}
-      propertyPath: m_Name
-      value: TurtleAni (2)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 943d147b98f87cf4889f6be4e3a0b9c1, type: 3}
 --- !u!4 &892019320290057772 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 943d147b98f87cf4889f6be4e3a0b9c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 5267982408794584374}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2785473701587293306 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8051415255134806348, guid: 943d147b98f87cf4889f6be4e3a0b9c1,
     type: 3}
   m_PrefabInstance: {fileID: 5267982408794584374}
   m_PrefabAsset: {fileID: 0}

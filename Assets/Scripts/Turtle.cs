@@ -21,6 +21,7 @@ public class Turtle : MonoBehaviour
     void Update()
     {
         if (beingGrabed) {
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
             transform.SetParent(theBird.transform);
             beingGrabed = false;
             timing = true;
@@ -41,17 +42,22 @@ public class Turtle : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (landing) {
+        if (landing)
+        {
             float distance = Vector3.Distance(planet.transform.position, this.transform.position);
             if (distance > planet.radius)
             {
                 transform.position += dir * speed * Time.deltaTime;
             }
-            else {
+            else
+            {
                 Vector3 normal = -dir;
                 transform.up = normal;
                 transform.position = this.planet.transform.position + normal * (planet.radius);
+                GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
                 landing = false;
+                beingReleased = false;
+
             }
         }
     }

@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 5554785790704429242}
   - component: {fileID: 5554785790704429245}
   - component: {fileID: 5554785790704429243}
+  - component: {fileID: 5554785791179217136}
   m_Layer: 0
   m_Name: Dog
   m_TagString: Untagged
@@ -91,7 +92,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   moveSpeed: 5
+  currentSpeed: 0
   rotateSpeed: 150
+  currentRotateSpeed: 0
   joystickRadius: 0.5
   detectArea: {fileID: 5554785791506544050}
 --- !u!65 &5554785790704429243
@@ -107,6 +110,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.33, y: 1, z: 1}
   m_Center: {x: 0, y: -0.27, z: 0}
+--- !u!114 &5554785791179217136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5554785790704429244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c612aa4a3c569440bb153c618cfe5b7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 2.77
+  friendMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &5554785791506544050
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,6 +190,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5554785790704429241}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 7e1c6699efee11b41ba62e1a570b8ea7,
+        type: 3}
+      propertyPath: m_Name
+      value: heart
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7e1c6699efee11b41ba62e1a570b8ea7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -226,11 +250,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 7e1c6699efee11b41ba62e1a570b8ea7,
-        type: 3}
-      propertyPath: m_Name
-      value: heart
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e1c6699efee11b41ba62e1a570b8ea7, type: 3}
 --- !u!1 &4483189570840124902 stripped
@@ -252,6 +271,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5554785790704429241}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 02dd20f99e611da4b97a9aa095b35f46,
+        type: 3}
+      propertyPath: m_Name
+      value: Doggo (1)
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 02dd20f99e611da4b97a9aa095b35f46,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -306,11 +330,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 02dd20f99e611da4b97a9aa095b35f46,
-        type: 3}
-      propertyPath: m_Name
-      value: Doggo (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02dd20f99e611da4b97a9aa095b35f46, type: 3}
