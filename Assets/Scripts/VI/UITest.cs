@@ -17,24 +17,28 @@ public class UITest : MonoBehaviour
     void Update()
     {
         float y = ControllerInput.GetJoystickLeftY();
-        if (Mathf.Abs(y) > 0.1f)
+        Debug.Log(y);
+
+        if (Mathf.Abs(y) > 0.3f)
         {
             if (!canMove) {
-                if (y < 0.1f) {
+                if (y < -0.3f) {
                     if (index <= 0)
                     {
-                        index++;
-                    }
-                    else {
                         index = 0;
                     }
-                } else if (y > 0.1f) {
-                    if (index > buttons.Length - 1)
+                    else
                     {
                         index--;
                     }
-                    else {
+                } else if (y > 0.3f) {
+                    if (index > buttons.Length - 1)
+                    {
                         index = buttons.Length - 1;
+                    }
+                    else
+                    {
+                        index++;
                     }
                 }
             }
@@ -53,6 +57,9 @@ public class UITest : MonoBehaviour
 
                 case 1:
                     ScenesController.JumpScene(1);
+                    break;
+                case 2:
+                    ScenesController.ExitGame();
                     break;
 
             }

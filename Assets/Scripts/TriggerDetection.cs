@@ -37,10 +37,14 @@ public class TriggerDetection : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            if (!isDefening) {
-                theTurtle.beingGrabed = true;
-                theTurtle.theBird = other.gameObject;
+            if (theTurtle) {
+                if (!isDefening)
+                {
+                    theTurtle.beingGrabed = true;
+                    theTurtle.theBird = other.gameObject;
+                }
             }
+           
         }
     }
 }
