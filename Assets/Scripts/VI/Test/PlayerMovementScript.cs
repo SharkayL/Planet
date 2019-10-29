@@ -10,10 +10,22 @@ public class PlayerMovementScript : MonoBehaviour {
 
     private Vector3 moveDirection;
     private Rigidbody rb;
+    [SerializeField]
+    private GameObject detectArea;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void OnEnable()
+    {
+        detectArea.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        detectArea.SetActive(true);
     }
 
     void Update()
@@ -52,11 +64,18 @@ public class PlayerMovementScript : MonoBehaviour {
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-        if (collision.transform.tag == "Obstacle")
-        {
-            ScenesController.JumpScene(1);
+        if (other.tag == "AnimalArea") {
+            if (ControllerInput.GetButtonX()) {
+                SwitchPlayer(other.GetComponentInParent<PlayerMovementScript>());
+            }
         }
+    }
+
+    void SwitchPlayer(PlayerMovementScript pms) {
+        transform.GetChild(1).parent = pms.transform;
+        GetComponent<PlayerMovementScript>().enabled = false;
+        pms.enabled = true;
     }
 }
