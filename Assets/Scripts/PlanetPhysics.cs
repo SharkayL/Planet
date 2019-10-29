@@ -22,7 +22,7 @@ public class PlanetPhysics : MonoBehaviour
         //x = Input.GetAxis("LeftX");
         //y = Input.GetAxis("LeftY");
         //Debug.Log("x"+x+"y"+y);
-        Quaternion toRotation = Quaternion.Euler(x, 0, -y);
+        //Quaternion toRotation = Quaternion.Euler(x, 0, -y);
         //planet.angularVelocity = new Vector3(x, 0, -y)*(Mathf.PI/2)*step*Time.deltaTime;
         //transform.rotation = Quaternion.Slerp(transform.rotation, transform.rotation * toRotation, step * Time.deltaTime);
     }
