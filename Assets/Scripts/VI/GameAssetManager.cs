@@ -30,4 +30,7 @@ public class GameAssetManager : MonoBehaviour
         public AudioClip audioClip;
         public SoundManager.UI_SoundEffects UI_sound;
     }
+
+    public PlayerMovementScript pms_Dog;
+
 }

@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Dog
   - Kangaroo
+  - PurpleRock
+  - Fox
   layers:
   - Default
   - TransparentFX

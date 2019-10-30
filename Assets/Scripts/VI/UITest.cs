@@ -7,18 +7,22 @@ public class UITest : MonoBehaviour
 {
     public Button[] buttons;
     public int index;
+    public GameObject howToPlayPanel;
 
     bool canMove;
 
     void Start() {
         buttons[0].Select();
+        howToPlayPanel.SetActive(false);
     }
 
     void Update()
     {
         float y = ControllerInput.GetJoystickLeftY();
         Debug.Log(y);
-
+        if (ControllerInput.GetButtonB()) {
+            howToPlayPanel.SetActive(false);
+        }
         if (Mathf.Abs(y) > 0.3f)
         {
             if (!canMove) {
@@ -56,7 +60,7 @@ public class UITest : MonoBehaviour
                     break;
 
                 case 1:
-                    ScenesController.JumpScene(1);
+                    howToPlayPanel.SetActive(true);
                     break;
                 case 2:
                     ScenesController.ExitGame();

@@ -5,7 +5,7 @@ using UnityEngine;
 public class TheRock : MonoBehaviour
 {
     PlanetPhysics planet;
-    // Start is called before the first frame update
+
     void Start()
     {
         planet = FindObjectOfType<PlanetPhysics>();

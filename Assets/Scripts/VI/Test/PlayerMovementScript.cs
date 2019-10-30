@@ -48,8 +48,8 @@ public class PlayerMovementScript : MonoBehaviour {
 
     void Update()
     {
-        JoystickController_Update();
-        KeyboardInput_Update();
+        //JoystickController_Update();
+        //KeyboardInput_Update();
     }
 
     void JoystickController_Update() {
@@ -74,8 +74,8 @@ public class PlayerMovementScript : MonoBehaviour {
     void FixedUpdate()
     {
         if (canMove) {
-            JoystickController_FixedUpdate();
-            KeyboardInput_FixedUpdate();
+            //JoystickController_FixedUpdate();
+            //KeyboardInput_FixedUpdate();
         }
     }
 
@@ -103,7 +103,7 @@ public class PlayerMovementScript : MonoBehaviour {
         {
             rb.MovePosition(rb.position + transform.TransformDirection(moveDirection_Joystick) * moveSpeed * Time.deltaTime);
         }
-        if (Mathf.Abs(rotateX) > 0.5f)
+        if (Mathf.Abs(rotateX) > 0.8f)
         {
             transform.Rotate(0, rotateX * rotateSpeed * Time.deltaTime, 0);
         }
@@ -127,7 +127,7 @@ public class PlayerMovementScript : MonoBehaviour {
         }
     }
 
-    void SwitchPlayer(PlayerMovementScript pms) {
+    public void SwitchPlayer(PlayerMovementScript pms) {
         transform.GetChild(1).parent = pms.transform;
         if (transform.childCount <= 1) {
             GetComponent<PlayerMovementScript>().enabled = false;

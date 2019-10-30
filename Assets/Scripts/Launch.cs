@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Launch : MonoBehaviour
 {
@@ -9,26 +10,40 @@ public class Launch : MonoBehaviour
     PlanetPhysics planet;
     Rigidbody rocketBody;
     float force = 50;
-    // Start is called before the first frame update
+    GameObject turtle;
+    public Image gameOverPanel;
+    Color color;
+
     void Start()
     {
         planet = FindObjectOfType<PlanetPhysics>();
         rocketBody = GetComponent<Rigidbody>();
         dir = Vector3.Normalize(transform.position - planet.transform.position);
+        color = gameOverPanel.color;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (launch) {
-            //get the player;
+            //turtle.transform.SetParent(transform);
+            if (color.a <= 1)
+            {
+                color.a += Time.deltaTime * 0.5f;
+            }
+            else {
+                ScenesController.JumpScene(0);
+            }
+
+            gameOverPanel.color = color;
+            rocketBody.constraints = RigidbodyConstraints.None;
             rocketBody.AddForce(dir*force, ForceMode.Acceleration);
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "Collectable") {
+        if (other.gameObject.tag == "PurpleRock") {
             launch = true;
+            turtle = other.gameObject.transform.parent.parent.gameObject;
         }
     }
 }

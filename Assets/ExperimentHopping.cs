@@ -19,6 +19,9 @@ public class ExperimentHopping : MonoBehaviour
     public float radius;
     public LayerMask kangarooMask;
     bool isColliding;
+    float currentTimer;
+    public float jumpTimer = 1f;
+    bool isFinding;
     
     void Start()
     {
@@ -35,7 +38,13 @@ public class ExperimentHopping : MonoBehaviour
         Vector3 baseCross = Vector3.Cross(transform.forward, normal);
         Vector3 forward = Vector3.Cross(normal, baseCross);
         this.transform.rotation = Quaternion.LookRotation(forward, normal);
-
+        if (isFinding)
+        {
+            jumpTimer = 0.08f;
+        }
+        else {
+            jumpTimer = 0.3f;
+        }
         if (isColliding)
         {
             transform.Rotate(0, 5, 0);
@@ -48,6 +57,7 @@ public class ExperimentHopping : MonoBehaviour
     void FollowKangaroo() {
         Collider[] colliders = Physics.OverlapSphere(transform.position, radius, kangarooMask);
         if (colliders.Length > 0) {
+            isFinding = true;
             for (int i = 0; i < colliders.Length; i++)
             {
                 Vector3 baseCross = Vector3.Cross(colliders[i].transform.position, normal);
@@ -59,19 +69,26 @@ public class ExperimentHopping : MonoBehaviour
 
     private void FixedUpdate()
     {
-       
+        
         if (GroundCheck())
         {
-            onGround = true;
-            Quaternion forceOrientation = Quaternion.LookRotation(transform.forward, normal);
-            foxBody.AddForce(forceOrientation * hoppingDir * hoppingForce, ForceMode.Impulse);
-
+            if (currentTimer <= jumpTimer)
+            {
+                currentTimer += Time.deltaTime;
+            }
+            else {
+                onGround = true;
+                Quaternion forceOrientation = Quaternion.LookRotation(transform.forward, normal);
+                foxBody.AddForce(forceOrientation * hoppingDir * hoppingForce, ForceMode.Impulse);
+                currentTimer = 0;
+            }
         }
         else
         {
             onGround = false;
             foxBody.AddForce(-normal * g, ForceMode.Acceleration);
         }
+        
     }
 
     bool GroundCheck() {
@@ -95,6 +112,12 @@ public class ExperimentHopping : MonoBehaviour
         if (collision.transform.tag == "Obstacle") {
             isColliding = true;
         }
+        if (transform.tag == "Fox") {
+            if (collision.transform.tag == "Kangaroo" && collision.transform.GetComponent<PlayerMovementScript>().enabled)
+            {
+                collision.transform.GetComponent<PlayerMovementScript>().SwitchPlayer(GameAssetManager.i.pms_Dog);
+            }
+        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -104,7 +127,6 @@ public class ExperimentHopping : MonoBehaviour
             isColliding = false;
         }
     }
-
     public void OnDrawGizmos()
     {
         Gizmos.color = new Color(1,0,0,0.3f);
