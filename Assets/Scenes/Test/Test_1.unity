@@ -7771,6 +7771,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 558837650}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &562744090 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1773743037304807909, guid: 8de5bbea2b04d46ffb330df19b105929,
+    type: 3}
+  m_PrefabInstance: {fileID: 1832860395}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &578358428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18704,7 +18710,7 @@ Transform:
   - {fileID: 1104349357}
   - {fileID: 1749119262}
   - {fileID: 1416666191}
-  - {fileID: 1832860396}
+  - {fileID: 562744090}
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -24176,17 +24182,17 @@ PrefabInstance:
     - target: {fileID: 1773743037304807909, guid: 8de5bbea2b04d46ffb330df19b105929,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.06
+      value: -0.1317
       objectReference: {fileID: 0}
     - target: {fileID: 1773743037304807909, guid: 8de5bbea2b04d46ffb330df19b105929,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1253
+      value: 0.083
       objectReference: {fileID: 0}
     - target: {fileID: 1773743037304807909, guid: 8de5bbea2b04d46ffb330df19b105929,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.1252
+      value: -0.1572
       objectReference: {fileID: 0}
     - target: {fileID: 1773743037304807909, guid: 8de5bbea2b04d46ffb330df19b105929,
         type: 3}
@@ -24257,14 +24263,13 @@ PrefabInstance:
       propertyPath: hoppingForce
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1773743038818592667, guid: 8de5bbea2b04d46ffb330df19b105929,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.03
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8de5bbea2b04d46ffb330df19b105929, type: 3}
---- !u!4 &1832860396 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1773743037304807909, guid: 8de5bbea2b04d46ffb330df19b105929,
-    type: 3}
-  m_PrefabInstance: {fileID: 1832860395}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1868240576
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28254,7 +28259,7 @@ PrefabInstance:
     - target: {fileID: 5267982407312727142, guid: 6e472d287ceeb4a1e97b79783d82e39f,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7127814035864040278, guid: 6e472d287ceeb4a1e97b79783d82e39f, type: 3}

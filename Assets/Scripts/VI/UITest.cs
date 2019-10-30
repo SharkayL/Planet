@@ -16,6 +16,14 @@ public class UITest : MonoBehaviour
         howToPlayPanel.SetActive(false);
     }
 
+    public void nextScene() {
+        ScenesController.JumpScene(1);
+    }
+
+    public void QuitGame() {
+        ScenesController.ExitGame();
+    }
+
     void Update()
     {
         float y = ControllerInput.GetJoystickLeftY();
@@ -23,10 +31,10 @@ public class UITest : MonoBehaviour
         if (ControllerInput.GetButtonB()) {
             howToPlayPanel.SetActive(false);
         }
-        if (Mathf.Abs(y) > 0.3f)
+        if (Mathf.Abs(y) > 0.2f)
         {
             if (!canMove) {
-                if (y < -0.3f) {
+                if (y < -0.2f) {
                     if (index <= 0)
                     {
                         index = 0;
@@ -35,7 +43,7 @@ public class UITest : MonoBehaviour
                     {
                         index--;
                     }
-                } else if (y > 0.3f) {
+                } else if (y > 0.2f) {
                     if (index > buttons.Length - 1)
                     {
                         index = buttons.Length - 1;

@@ -28,6 +28,8 @@ public class PlayerMovementScript : MonoBehaviour {
     [SerializeField]
     private GameObject detectArea;
 
+    PlayerMovementScript switchObj;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -48,8 +50,13 @@ public class PlayerMovementScript : MonoBehaviour {
 
     void Update()
     {
-        //JoystickController_Update();
-        //KeyboardInput_Update();
+        JoystickController_Update();
+        KeyboardInput_Update();
+        if (switchObj != null) {
+            if (ControllerInput.GetKeyF() || ControllerInput.GetButtonY()) {
+                SwitchPlayer(switchObj);
+            }
+        }
     }
 
     void JoystickController_Update() {
@@ -74,8 +81,8 @@ public class PlayerMovementScript : MonoBehaviour {
     void FixedUpdate()
     {
         if (canMove) {
-            //JoystickController_FixedUpdate();
-            //KeyboardInput_FixedUpdate();
+            JoystickController_FixedUpdate();
+            KeyboardInput_FixedUpdate();
         }
     }
 
@@ -118,12 +125,27 @@ public class PlayerMovementScript : MonoBehaviour {
     }
 
 
-    private void OnTriggerStay(Collider other)
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.tag == "AnimalArea") {
+    //        if (ControllerInput.GetButtonY() || ControllerInput.GetKeyF()) {
+    //            SwitchPlayer(other.GetComponentInParent<PlayerMovementScript>());
+    //        }
+    //    }
+    //}
+
+    private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "AnimalArea") {
-            if (ControllerInput.GetButtonY() || ControllerInput.GetKeyF()) {
-                SwitchPlayer(other.GetComponentInParent<PlayerMovementScript>());
-            }
+            switchObj = other.GetComponentInParent<PlayerMovementScript>();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "AnimalArea")
+        {
+            switchObj = null;
         }
     }
 

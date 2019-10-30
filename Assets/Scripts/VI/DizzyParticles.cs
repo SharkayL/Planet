@@ -15,7 +15,7 @@ public class DizzyParticles : MonoBehaviour
     private void Update()
     {
 
-        transform.Rotate(0, 10, 0);
+        transform.Rotate(0, 200*Time.deltaTime, 0);
         if (currentTimer < timer)
         {
             currentTimer += Time.deltaTime;
